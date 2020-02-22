@@ -1,7 +1,5 @@
 function exportDashboardForAllBranches() {
-    // Protect the sheet while it is being exported (prevent any user to update it)
-    var protection = SPREADSHEET.sheets.dashboard.sheet.protect().setDescription('Export sheet protection');
-
+    var protection = protectDashboardSheet();
     setDate();
     var branchesEmailData = getEmailData();
     branchesEmailData.forEach(function (branchEmailData) {
@@ -111,4 +109,14 @@ function waitSyncDone() {
         // syncStatus = SPREADSHEET.sheets.dashboard.sheet.getRange(SPREADSHEET.sheets.dashboard.syncStatusCell).getValue();
         // Utilities.sleep(400);
     // } while (syncStatus !== "DONE");
+}
+
+/**
+ * Protect the dashboard sheet (and removes everyone from the edit whitelist) while it is being exported
+ * (prevent any user to update it)
+ */
+function protectDashboardSheet() {
+    var protection = SPREADSHEET.sheets.dashboard.sheet.protect().setDescription('Export sheet protection');
+    protection.removeEditors(protection.getEditors());
+    return protection;
 }
