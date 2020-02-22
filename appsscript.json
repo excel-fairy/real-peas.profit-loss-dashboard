@@ -8,8 +8,9 @@
     }, {
       "userSymbol": "ExportSpreadsheet",
       "libraryId": "1XgUnRIGc3oOvbyWcavQcw8N_zOGpp8uNPiyMsI6MVzyMOx2lwezmnRYY",
-      "version": "4"
+      "version": "6"
     }]
   },
-  "exceptionLogging": "STACKDRIVER"
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8"
 }
