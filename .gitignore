@@ -1,5 +1,4 @@
 .idea/
 *.iml
 
-.clasp.dev.json
 .clasp.production.json
